@@ -1,32 +1,41 @@
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/useStoreHook";
-import { searchRecipes } from "../../store/slices/recipesSlice";
-import { useLocation } from "react-router-dom";
+import { fetchRecipes, searchRecipes } from "../../store/slices/recipesSlice";
+import { useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const useSearchRecipe = () => {
   const dispatch = useAppDispatch();
-  const location = useLocation();
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search") || "";
+  const [searchTerm, setSearchTerm] = useState(searchQuery);
   const [submittedSearchTerm, setSubmittedSearchTerm] = useState("");
 
-  const { searchResults, searchLoading, searchError } = useAppSelector(
+  const { recipes, searchResults, searchLoading, searchError } = useAppSelector(
     (state) => state.recipes
   );
 
   useEffect(() => {
-    const state: any = location.state;
-    if (state && state.searchTerm) {
-      setSearchTerm(state.searchTerm);
-      setSubmittedSearchTerm(state.searchTerm);
+    if (recipes.length === 0) {
+      dispatch(fetchRecipes());
     }
-  }, [location.state]);
+  }, [recipes, dispatch]);
+
+  useEffect(() => {
+    if (searchQuery) {
+      setSearchTerm(searchQuery);
+      setSubmittedSearchTerm(searchQuery);
+      dispatch(searchRecipes(searchQuery));
+    }
+  }, [searchQuery, dispatch]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && searchTerm.trim()) {
       toast.dismiss();
-      dispatch(searchRecipes(searchTerm.trim()));
-      setSubmittedSearchTerm(searchTerm.trim());
+      const term = searchTerm.trim();
+      setSearchParams({ search: term });
+      dispatch(searchRecipes(term));
+      setSubmittedSearchTerm(term);
     }
   };
 

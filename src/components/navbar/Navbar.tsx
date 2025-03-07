@@ -1,8 +1,10 @@
+// src/pages/Navbar.tsx
 import React from "react";
 import { IMAGES } from "../../constants/images";
 import { MENUITEMS } from "../../constants/menu";
 import { COLORS } from "../../constants/colors";
 import { useNavbar } from "./useNavbar";
+import SearchBar from "../../components/searchBar/SearchBar";
 
 const Navbar: React.FC = () => {
   const {
@@ -48,32 +50,13 @@ const Navbar: React.FC = () => {
           </ul>
 
           <div className="flex items-center space-x-4">
-            <div className="hidden xl:block relative">
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <img
-                  src={IMAGES.search}
-                  alt="Search"
-                  style={{
-                    filter:
-                      "brightness(0) saturate(100%) invert(41%) sepia(9%) saturate(0%) hue-rotate(191deg) brightness(93%) contrast(86%)",
-                  }}
-                  className="w-4 h-4"
-                />
-              </div>
-              <input
-                type="text"
-                placeholder="Search Recipes"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={handleKeyDown}
-                style={{
-                  borderColor: COLORS.borderGray,
-                  backgroundColor: COLORS.Bg,
-                }}
-                className="pl-10 pr-3 py-1 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-300"
-              />
-            </div>
-
+            {/* Use the SearchBar with variant "navbar" */}
+            <SearchBar
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleKeyDown}
+              variant="navbar"
+            />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="xl:hidden"

@@ -60,3 +60,11 @@ export type UseRecipeCardProps = {
   recipe: Recipe;
   onViewRecipe?: (id: number) => void;
 };
+
+export type SearchBarProps = {
+  value: string;
+  placeholder?: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  variant?: "navbar" | "recipe";
+};
