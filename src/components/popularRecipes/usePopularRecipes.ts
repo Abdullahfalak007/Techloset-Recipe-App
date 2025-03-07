@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../hooks/useStoreHook";
+import { selectPopularRecipes } from "../../store/slices/recipesSlice";
 
 export const usePopularRecipes = () => {
-  const { popularRecipes } = useAppSelector((state) => state.recipes);
-  const navigate = useNavigate();
-
-  return { popularRecipes, navigate };
+  const popularRecipes = useAppSelector(selectPopularRecipes);
+  return { popularRecipes };
 };

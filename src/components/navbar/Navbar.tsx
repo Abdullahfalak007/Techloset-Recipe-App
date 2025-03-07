@@ -15,7 +15,6 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Top bar */}
       <div
         style={{
           backgroundColor: COLORS.primary,
@@ -24,13 +23,10 @@ const Navbar: React.FC = () => {
         }}
       ></div>
 
-      {/* Main Navbar */}
       <nav className="px-6 md:px-12 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo Section */}
           <div className="flex items-center space-x-2">
             <img src={IMAGES.logo} alt="Logo" className="h-5 w-auto" />
-            {/* Logo text hidden on mobile */}
             <span
               style={{ color: COLORS.navbarText }}
               className="hidden md:inline-block text-[26px] font-inter"
@@ -39,7 +35,6 @@ const Navbar: React.FC = () => {
             </span>
           </div>
 
-          {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-6">
             {MENUITEMS?.map((item, index) => (
               <li
@@ -52,16 +47,15 @@ const Navbar: React.FC = () => {
             ))}
           </ul>
 
-          {/* Right side: Desktop Search Bar & Mobile Hamburger */}
           <div className="flex items-center space-x-4">
-            {/* Search Bar (desktop only) */}
             <div className="hidden xl:block relative">
               <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
                 <img
                   src={IMAGES.search}
                   alt="Search"
                   style={{
-                    filter: `brightness(0) saturate(100%) invert(41%) sepia(9%) saturate(0%) hue-rotate(191deg) brightness(93%) contrast(86%)`,
+                    filter:
+                      "brightness(0) saturate(100%) invert(41%) sepia(9%) saturate(0%) hue-rotate(191deg) brightness(93%) contrast(86%)",
                   }}
                   className="w-4 h-4"
                 />
@@ -76,11 +70,10 @@ const Navbar: React.FC = () => {
                   borderColor: COLORS.borderGray,
                   backgroundColor: COLORS.Bg,
                 }}
-                className="pl-10 pr-3 py-1 rounded-2xl focus:outline-none focus:ring-2"
+                className="pl-10 pr-3 py-1 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-300"
               />
             </div>
 
-            {/* Hamburger Icon (mobile only) */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="xl:hidden"
@@ -90,7 +83,6 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <ul className="mt-4 space-y-2 xl:hidden">
             {MENUITEMS?.map((item, index) => (

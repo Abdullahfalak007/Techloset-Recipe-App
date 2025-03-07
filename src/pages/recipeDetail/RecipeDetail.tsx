@@ -30,7 +30,6 @@ const RecipeDetail: React.FC = () => {
 
   return (
     <div>
-      {/* Hero Image Section */}
       <div className="relative w-full h-64 md:h-80 lg:h-96">
         <img
           src={thumbnail_url}
@@ -48,9 +47,7 @@ const RecipeDetail: React.FC = () => {
         </div>
       </div>
 
-      {/* Content Section */}
       <div className="container mx-auto max-w-8xl px-4 py-8 space-y-8">
-        {/* Description & Quick Info */}
         <div>
           {description && (
             <p className="text-lg text-gray-700 mb-4">{description}</p>
@@ -83,7 +80,6 @@ const RecipeDetail: React.FC = () => {
           </div>
         </div>
 
-        {/* Tips */}
         {tips_and_ratings_enabled && tips_summary?.content && (
           <div className="bg-gray-50 p-4 rounded-lg">
             <h2 className="text-xl font-semibold mb-2">
@@ -95,7 +91,6 @@ const RecipeDetail: React.FC = () => {
           </div>
         )}
 
-        {/* Ingredients */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
           <ul className="list-disc list-inside space-y-1">
@@ -105,7 +100,6 @@ const RecipeDetail: React.FC = () => {
           </ul>
         </div>
 
-        {/* Instructions */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">Instructions</h2>
           <ol className="list-decimal list-inside space-y-1">
@@ -115,7 +109,6 @@ const RecipeDetail: React.FC = () => {
           </ol>
         </div>
 
-        {/* Topics */}
         {topics && topics.length > 0 && (
           <div>
             <h2 className="text-2xl font-semibold mb-4">Topics</h2>

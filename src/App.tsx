@@ -1,6 +1,8 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/home/Home";
 import SearchRecipe from "./pages/searchRecipe/SearchRecipe";
 import RecipeDetail from "./pages/recipeDetail/RecipeDetail";
@@ -14,6 +16,7 @@ function App() {
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">
+          <ToastContainer />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/recipes" element={<SearchRecipe />} />

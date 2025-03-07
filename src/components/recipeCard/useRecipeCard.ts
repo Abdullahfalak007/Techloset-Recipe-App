@@ -1,10 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Recipe } from "../../types/types";
-
-interface UseRecipeCardProps {
-  recipe: Recipe;
-  onViewRecipe?: (id: number) => void;
-}
+import { UseRecipeCardProps } from "../../types/types";
 
 export const useRecipeCard = ({ recipe, onViewRecipe }: UseRecipeCardProps) => {
   const navigate = useNavigate();

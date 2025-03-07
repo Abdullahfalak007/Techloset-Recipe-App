@@ -1,5 +1,3 @@
-// src/types/types.ts
-
 export type Recipe = {
   id: number;
   name: string;
@@ -39,14 +37,12 @@ export type Recipe = {
 
 export type RecipesState = {
   recipes: Recipe[];
-  popularRecipes: Recipe[];
   loading: boolean;
   error: string | null;
-
-  // For searching
   searchResults: Recipe[];
-  searchLoading: boolean;
-  searchError: string | null;
+  searchLoading?: boolean;
+  searchError?: string | null;
+  searchTerm?: string;
 };
 
 export type ButtonProps = {
@@ -57,5 +53,10 @@ export type ButtonProps = {
 export type RecipeCardProps = {
   recipe: Recipe;
   layout?: "vertical" | "horizontal";
+  onViewRecipe?: (id: number) => void;
+};
+
+export type UseRecipeCardProps = {
+  recipe: Recipe;
   onViewRecipe?: (id: number) => void;
 };

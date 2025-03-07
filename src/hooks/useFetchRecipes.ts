@@ -6,14 +6,11 @@ export const useFetchRecipes = () => {
   const dispatch = useAppDispatch();
   const { recipes, loading, error } = useAppSelector((state) => state.recipes);
 
-  const loadRecipes = () => {
-    dispatch(fetchRecipes());
-  };
-
-  // Optionally, auto-fetch on mount:
   useEffect(() => {
-    loadRecipes();
-  }, [dispatch]);
+    if (recipes.length === 0) {
+      dispatch(fetchRecipes());
+    }
+  }, [dispatch, recipes.length]);
 
-  return { recipes, loading, error, loadRecipes }; //add loadRecipes in the curly braces behind
+  return { recipes, loading, error };
 };
