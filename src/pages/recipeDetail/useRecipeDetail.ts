@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../hooks/useStoreHook";
+import { useAppSelector } from "../../hooks/useStore";
 
 export const useRecipeDetail = () => {
   const { id } = useParams<{ id: string }>();

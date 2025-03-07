@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../hooks/useStoreHook";
+import { useAppDispatch, useAppSelector } from "../../hooks/useStore";
 import { fetchRecipes, searchRecipes } from "../../store/slices/recipesSlice";
 import { useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";

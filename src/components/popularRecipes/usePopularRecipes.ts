@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../hooks/useStoreHook";
+import { useAppSelector } from "../../hooks/useStore";
 import { selectPopularRecipes } from "../../store/slices/recipesSlice";
 
 export const usePopularRecipes = () => {

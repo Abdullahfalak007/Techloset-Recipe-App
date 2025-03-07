@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../../hooks/useStoreHook";
+import { useAppSelector } from "../../hooks/useStore";
 
 export const useRecentRecipes = () => {
   const { recipes } = useAppSelector((state) => state.recipes);
