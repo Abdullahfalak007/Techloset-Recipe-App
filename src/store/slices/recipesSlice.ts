@@ -22,7 +22,7 @@ export const fetchRecipes = createAsyncThunk<
 >("recipes/fetchRecipes", async (_, { rejectWithValue }) => {
   try {
     const response = await axios.get(
-      "https://tasty.p.rapidapi.com/recipes/list?from=0&size=300&tags=under_30_minutes",
+      "https://tasty.p.rapidapi.com/recipes/list?from=0&size=100&tags=under_30_minutes",
       {
         headers: {
           "X-RapidAPI-Key": import.meta.env.VITE_RAPIDAPI_KEY,
