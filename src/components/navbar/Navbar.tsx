@@ -1,4 +1,3 @@
-// src/pages/Navbar.tsx
 import React from "react";
 import { IMAGES } from "../../constants/images";
 import { MENUITEMS } from "../../constants/menu";
@@ -25,7 +24,7 @@ const Navbar: React.FC = () => {
         }}
       ></div>
 
-      <nav className="px-6 md:px-12 py-4">
+      <nav className="px-6 md:px-12 py-4 relative">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <img src={IMAGES.logo} alt="Logo" className="h-5 w-auto" />
@@ -50,7 +49,6 @@ const Navbar: React.FC = () => {
           </ul>
 
           <div className="flex items-center space-x-4">
-            {/* Use the SearchBar with variant "navbar" */}
             <SearchBar
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -67,7 +65,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {isMenuOpen && (
-          <ul className="mt-4 space-y-2 xl:hidden">
+          <ul className="absolute top-full left-0 w-full bg-white space-y-2 xl:hidden z-50 p-4">
             {MENUITEMS?.map((item, index) => (
               <li
                 key={index}
