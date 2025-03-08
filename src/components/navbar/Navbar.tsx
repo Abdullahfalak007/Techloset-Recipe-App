@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
               </span>
             </div>
 
-            <ul className="hidden md:flex space-x-6">
+            <ul className="hidden xl:flex space-x-6">
               {MENUITEMS?.map((item, index) => (
                 <li
                   key={index}
