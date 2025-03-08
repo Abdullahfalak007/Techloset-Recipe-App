@@ -24,61 +24,67 @@ const Navbar: React.FC = () => {
         }}
       ></div>
 
-      <nav className="px-6 md:px-12 py-4 relative">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <img src={IMAGES.logo} alt="Logo" className="h-6 w-auto" />
-            <span
-              style={{ color: COLORS.navbarText }}
-              className="hidden md:inline-block text-[26px] font-inter"
-            >
-              Delícias à Mesa
-            </span>
-          </div>
-
-          <ul className="hidden md:flex space-x-6">
-            {MENUITEMS?.map((item, index) => (
-              <li
-                key={index}
+      <nav className="py-4 relative">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <img src={IMAGES.logo} alt="Logo" className="h-6 w-auto" />
+              <span
                 style={{ color: COLORS.navbarText }}
-                className="font-bold hover:underline"
+                className="hidden md:inline-block text-[26px] font-inter"
               >
-                <a href={item.path}>{item.name}</a>
-              </li>
-            ))}
-          </ul>
+                Delícias à Mesa
+              </span>
+            </div>
 
-          <div className="flex items-center space-x-4">
-            <SearchBar
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              onKeyDown={handleKeyDown}
-              variant="navbar"
-            />
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="xl:hidden"
-            >
-              <img src={IMAGES.hamburgerIcon} alt="Menu" className="w-6 h-6" />
-            </button>
+            <ul className="hidden md:flex space-x-6">
+              {MENUITEMS?.map((item, index) => (
+                <li
+                  key={index}
+                  style={{ color: COLORS.navbarText }}
+                  className="font-bold hover:underline"
+                >
+                  <a href={item.path}>{item.name}</a>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex items-center space-x-4">
+              <SearchBar
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={handleKeyDown}
+                variant="navbar"
+              />
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="xl:hidden"
+              >
+                <img
+                  src={IMAGES.hamburgerIcon}
+                  alt="Menu"
+                  className="w-6 h-6"
+                />
+              </button>
+            </div>
           </div>
+
+          {isMenuOpen && (
+            <ul className="absolute top-full left-0 w-full bg-white space-y-2 xl:hidden z-50 p-4">
+              {MENUITEMS?.map((item, index) => (
+                <li
+                  key={index}
+                  style={{ color: COLORS.navbarText }}
+                  className="font-medium hover:underline"
+                >
+                  <a href={item.path} onClick={() => setIsMenuOpen(false)}>
+                    {item?.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-
-        {isMenuOpen && (
-          <ul className="absolute top-full left-0 w-full bg-white space-y-2 xl:hidden z-50 p-4">
-            {MENUITEMS?.map((item, index) => (
-              <li
-                key={index}
-                style={{ color: COLORS.navbarText }}
-                className="font-medium hover:underline"
-              >
-                <a href={item.path} onClick={() => setIsMenuOpen(false)}>
-                  {item?.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
       </nav>
     </>
   );

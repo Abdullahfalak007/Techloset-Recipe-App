@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = (props) => {
       style={{
         backgroundColor: hover ? COLORS.secondaryColor : COLORS.primary,
       }}
-      className={`transition-colors duration-100 w-40 h-8 rounded-full flex items-center justify-center gap-2 font-bold  text-black`}
+      className={`transition-colors duration-100 w-full sm:w-40 h-8 rounded-full flex items-center justify-center gap-2 font-bold  text-black`}
     >
       {props.label}
     </button>

@@ -6,7 +6,7 @@ const RecentRecipes: React.FC = () => {
   const { recentRecipes } = useRecentRecipes();
 
   return (
-    <div className="container w-[80%] mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
         Recent Recipes
       </h2>

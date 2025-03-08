@@ -34,7 +34,7 @@ const SearchRecipe: React.FC = () => {
         )}
         {!searchLoading && !searchError && searchResults.length > 0 && (
           <>
-            <h2 className="text-2xl md:text-3xl font-bold text-left mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-center md:text-left  mb-6">
               Search Results
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">

@@ -41,18 +41,20 @@ export const useSearchRecipe = () => {
 
   useEffect(() => {
     if (submittedSearchTerm && !searchLoading && !searchError) {
-      toast.dismiss();
-      if (searchResults.length === 0) {
-        toast.error(`No recipes found matching "${submittedSearchTerm}"`, {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-      }
-      setSubmittedSearchTerm("");
+      const timer = setTimeout(() => {
+        if (searchResults.length === 0) {
+          toast.error(`No recipes found matching "${submittedSearchTerm}"`, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
+        setSubmittedSearchTerm("");
+      }, 1000); // delay of 500ms
+      return () => clearTimeout(timer);
     }
   }, [submittedSearchTerm, searchResults, searchLoading, searchError]);
 

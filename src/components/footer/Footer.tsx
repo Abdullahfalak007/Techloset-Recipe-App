@@ -5,7 +5,7 @@ import { IMAGES } from "../../constants/images";
 const Footer: React.FC = () => {
   return (
     <footer className="py-12" style={{ backgroundColor: COLORS.primary }}>
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center">
         <div className="flex items-center space-x-2 mb-4 md:mb-0">
           <img src={IMAGES.logo} alt="Logo" className="h-6 w-auto" />
           <span
