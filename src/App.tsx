@@ -9,8 +9,19 @@ import RecipeDetail from "./pages/recipeDetail/RecipeDetail";
 import Navbar from "./components/navbar/Navbar";
 import NotFound from "./pages/notFound/NotFound";
 import Footer from "./components/footer/Footer";
+import { useFetchRecipes } from "./hooks/useFetchRecipes";
+import Loader from "./components/loader/Loader";
 
 function App() {
+  const { loading, error } = useFetchRecipes();
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <p className="text-center text-red-500">Error: {error}</p>;
+  }
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
