@@ -6,7 +6,7 @@ import RecentRecipes from "../../components/recentRecipes/RecentRecipes";
 import Loader from "../../components/loader/Loader";
 
 const Home = () => {
-  const { recipes, loading, error } = useFetchRecipes();
+  const { loading, error } = useFetchRecipes();
 
   if (loading) {
     return <Loader />;
