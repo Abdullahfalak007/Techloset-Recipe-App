@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
       <nav className="px-6 md:px-12 py-4 relative">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <img src={IMAGES.logo} alt="Logo" className="h-5 w-auto" />
+            <img src={IMAGES.logo} alt="Logo" className="h-6 w-auto" />
             <span
               style={{ color: COLORS.navbarText }}
               className="hidden md:inline-block text-[26px] font-inter"
