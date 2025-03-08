@@ -4,6 +4,7 @@ import { MENUITEMS } from "../../constants/menu";
 import { COLORS } from "../../constants/colors";
 import { useNavbar } from "./useNavbar";
 import SearchBar from "../../components/searchBar/SearchBar";
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const {
@@ -44,7 +45,7 @@ const Navbar: React.FC = () => {
                   style={{ color: COLORS.navbarText }}
                   className="font-bold hover:underline"
                 >
-                  <a href={item.path}>{item.name}</a>
+                  <Link to={item.path}>{item.name}</Link>
                 </li>
               ))}
             </ul>
@@ -77,9 +78,9 @@ const Navbar: React.FC = () => {
                   style={{ color: COLORS.navbarText }}
                   className="font-medium hover:underline"
                 >
-                  <a href={item.path} onClick={() => setIsMenuOpen(false)}>
+                  <Link to={item.path} onClick={() => setIsMenuOpen(false)}>
                     {item?.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

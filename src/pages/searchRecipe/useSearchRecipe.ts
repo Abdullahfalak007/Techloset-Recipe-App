@@ -53,7 +53,7 @@ export const useSearchRecipe = () => {
           });
         }
         setSubmittedSearchTerm("");
-      }, 1000); // delay of 500ms
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [submittedSearchTerm, searchResults, searchLoading, searchError]);
