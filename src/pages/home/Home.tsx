@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useFetchRecipes } from "../../hooks/useFetchRecipes";
 import HeroSection from "../../components/heroSection/HeroSection";
 import PopularRecipes from "../../components/popularRecipes/PopularRecipes";

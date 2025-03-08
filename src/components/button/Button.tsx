@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { COLORS } from "../../constants/colors";
 import { ButtonProps } from "../../types/types";
 import { useButton } from "./useButton";

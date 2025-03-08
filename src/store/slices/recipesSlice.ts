@@ -47,6 +47,7 @@ const recipesSlice = createSlice({
       );
     },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchRecipes.pending, (state) => {
