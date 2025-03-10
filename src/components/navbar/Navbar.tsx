@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
               />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden"
+                className="lg:hidden"
               >
                 <img
                   src={IMAGES.hamburgerIcon}
