@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
               </span>
             </div>
 
-            <ul className="hidden xl:flex space-x-6">
+            <ul className="hidden lg:flex space-x-6">
               {MENUITEMS?.map((item, index) => (
                 <li
                   key={index}
@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
               />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="xl:hidden"
+                className="md:hidden"
               >
                 <img
                   src={IMAGES.hamburgerIcon}
@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {isMenuOpen && (
-            <ul className="absolute top-full left-0 w-full bg-white space-y-2 xl:hidden z-50 p-4">
+            <ul className="absolute top-full left-0 w-full bg-white space-y-2 md:hidden z-50 p-4">
               {MENUITEMS?.map((item, index) => (
                 <li
                   key={index}

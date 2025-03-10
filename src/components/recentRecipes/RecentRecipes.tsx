@@ -10,7 +10,7 @@ const RecentRecipes: React.FC = () => {
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
         Recent Recipes
       </h2>
-      <div className="flex flex-col space-y-6">
+      <div className="flex flex-col space-y-6 md:mx-6 lg:mx-14 xl:mx-20 2xl:mx-32">
         {recentRecipes?.map((recipe) => (
           <RecipeCard key={recipe.id} recipe={recipe} layout="horizontal" />
         ))}

@@ -14,7 +14,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     <div
       className={
         variant === "navbar"
-          ? "hidden xl:block relative"
+          ? "hidden md:block relative"
           : "relative w-full max-w-xl"
       }
     >
