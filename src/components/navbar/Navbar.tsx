@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {isMenuOpen && (
-            <ul className="absolute top-full left-0 w-full bg-white space-y-2 md:hidden z-50 p-4">
+            <ul className="absolute top-full left-0 w-full bg-white space-y-2 lg:hidden z-50 p-4">
               {MENUITEMS?.map((item, index) => (
                 <li
                   key={index}
