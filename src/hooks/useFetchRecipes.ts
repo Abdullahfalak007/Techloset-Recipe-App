@@ -10,7 +10,7 @@ export const useFetchRecipes = () => {
     if (recipes.length === 0) {
       dispatch(fetchRecipes());
     }
-  }, [dispatch, recipes.length]);
+  }, []);
 
   return { recipes, loading, error };
 };

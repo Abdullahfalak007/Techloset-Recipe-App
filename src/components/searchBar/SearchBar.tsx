@@ -12,11 +12,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   return (
     <div
-      className={
-        variant === "navbar"
-          ? "hidden md:block relative"
-          : "relative w-full max-w-xl"
-      }
+      className={`relative ${
+        variant === "navbar" ? "hidden md:block" : "w-full max-w-xl"
+      }`}
     >
       <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
         <img
@@ -39,16 +37,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
         value={value}
         onChange={onChange}
         onKeyDown={onKeyDown}
-        className={
-          variant === "navbar"
-            ? "pl-10 pr-3 py-1 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-300"
-            : "w-full pl-10 pr-3 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-300"
-        }
-        style={
-          variant === "navbar"
-            ? { borderColor: COLORS.borderGray, backgroundColor: COLORS.Bg }
-            : { backgroundColor: COLORS.Bg }
-        }
+        className={`${
+          variant === "navbar" ? "py-1" : "w-full py-2"
+        } pl-10 pr-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-300`}
+        style={{
+          backgroundColor: COLORS.Bg,
+          ...(variant === "navbar" && { borderColor: COLORS.borderGray }),
+        }}
       />
     </div>
   );

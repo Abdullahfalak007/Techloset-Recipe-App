@@ -13,19 +13,16 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
 
   return (
     <div
-      className={
-        layout === "vertical"
-          ? "shadow-md rounded-3xl flex flex-col w-full max-w-xs h-full"
-          : "shadow-md rounded-3xl flex flex-col md:flex-row"
-      }
+      className={`shadow-md rounded-3xl flex flex-col ${
+        layout === "vertical" ? "w-full max-w-xs h-full" : "md:flex-row"
+      }`}
       style={{ backgroundColor: COLORS.Bg }}
     >
       <div
-        className={
-          layout === "vertical"
-            ? "w-full aspect-[403/212] overflow-hidden rounded-t-3xl"
-            : "w-full aspect-[403/212] md:aspect-auto md:w-60 md:h-52 flex-none overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-t-none"
-        }
+        className={`w-full aspect-[403/212] overflow-hidden rounded-t-3xl ${
+          layout !== "vertical" &&
+          "md:aspect-auto md:w-60 md:h-52 flex-none md:rounded-l-3xl md:rounded-t-none"
+        }`}
       >
         <img
           src={recipe.thumbnail_url}

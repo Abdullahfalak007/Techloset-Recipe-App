@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { COLORS } from "../../constants/colors";
 import { IMAGES } from "../../constants/images";
+import { SOCIAL_LINKS } from "../../constants/socialLinks";
 
 const Footer: React.FC = () => {
   return (
@@ -24,50 +26,18 @@ const Footer: React.FC = () => {
             Redes sociais:
           </span>
           <div className="flex space-x-2">
-            <a
-              href="https://www.youtube.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block p-2 rounded"
-              style={{ backgroundColor: COLORS.secondaryColor }}
-            >
-              <img src={IMAGES.youtubeIcon} alt="YouTube" className="w-5 h-5" />
-            </a>
-            <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block p-2 rounded"
-              style={{ backgroundColor: COLORS.secondaryColor }}
-            >
-              <img src={IMAGES.xIcon} alt="X (Twitter)" className="w-5 h-5" />
-            </a>
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block p-2 rounded"
-              style={{ backgroundColor: COLORS.secondaryColor }}
-            >
-              <img
-                src={IMAGES.linkedInIcon}
-                alt="LinkedIn"
-                className="w-5 h-5"
-              />
-            </a>
-            <a
-              href="https://www.pinterest.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block p-2 rounded"
-              style={{ backgroundColor: COLORS.secondaryColor }}
-            >
-              <img
-                src={IMAGES.pinterestIcon}
-                alt="Pinterest"
-                className="w-5 h-5"
-              />
-            </a>
+            {SOCIAL_LINKS.map((link, index) => (
+              <Link
+                key={index}
+                to={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block p-2 rounded"
+                style={{ backgroundColor: COLORS.secondaryColor }}
+              >
+                <img src={link.icon} alt={link.name} className="w-5 h-5" />
+              </Link>
+            ))}
           </div>
         </div>
       </div>

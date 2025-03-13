@@ -4,7 +4,7 @@ import {
   PayloadAction,
   createSelector,
 } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import type { RootState } from "../store";
 import type { Recipe, RecipesState } from "../../types/types";
 
@@ -31,8 +31,11 @@ export const fetchRecipes = createAsyncThunk<
       }
     );
     return response.data.results as Recipe[];
-  } catch (error: any) {
-    return rejectWithValue("Network error");
+  } catch (error: unknown) {
+    if (error instanceof AxiosError) {
+      return rejectWithValue(error.response?.data?.message || "Network error");
+    }
+    return rejectWithValue("An unexpected error occurred");
   }
 });
 
